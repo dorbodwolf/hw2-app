@@ -38,6 +38,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 
 group :development, :test do
+
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -51,8 +53,8 @@ group :development, :test do
   gem 'execjs'
   gem 'rspec-rails'
   gem 'autotest'
-  #gem 'sqlite3'
-  gem 'pg' # for Heroku deployment
+ 
+
 end
 
 group :production do
