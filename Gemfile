@@ -51,7 +51,8 @@ group :development, :test do
   gem 'execjs'
   gem 'rspec-rails'
   gem 'autotest'
-  gem 'sqlite3'
+  #gem 'sqlite3'
+  gem 'pg' # for Heroku deployment
 end
 
 group :production do
