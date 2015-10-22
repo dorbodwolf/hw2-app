@@ -1,13 +1,19 @@
 -#  This file is app/views/movies/index.html.haml
 %h1 交易中的商品
-	
+
+= form_tag movies_path, :method => :get do
+  Include:
+  - @all_ratings.each do |r|
+    = r
+    = check_box_tag "ratings[#{r}]","ratings[#{r}]", @ratings.include?(r)?true:false
+  = submit_tag "Refresh" , :id=>"ratings_submit"
 
 %table#movies
   %thead
     %tr
-      %td= link_to "商品名称", movies_path(sort_param: 'title')
+      %td= link_to "商品名称", movies_path(sort_by: 'title')
       %th 所属大类
-      %td= link_to "上架时间", movies_path(sort_param: 'release_date')
+      %td= link_to "上架时间", movies_path(sort_by: 'release_date')
       %th 商品详细信息
   %tbody
     - @movies.each do |movie|
