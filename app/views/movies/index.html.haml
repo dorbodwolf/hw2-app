@@ -1,19 +1,26 @@
 -#  This file is app/views/movies/index.html.haml
-%h1 All Movies
+%h1 交易中的商品
+
+= form_tag movies_path, :method => :get do
+  Include:
+  - @all_ratings.each do |rating|
+    = rating
+    = check_box_tag "ratings[#{rating}]"
+  = submit_tag '重新加载'	
 
 %table#movies
   %thead
     %tr
-      %td= link_to "Movie Title", movies_path(sort_param: 'title')
-      %th Rating
-      %td= link_to "Release Date", movies_path(sort_param: 'release_date')
-      %th More Info
+      %td= link_to "商品名称", movies_path(sort_param: 'title')
+      %th 所属大类
+      %td= link_to "上架时间", movies_path(sort_param: 'release_date')
+      %th 商品详细信息
   %tbody
     - @movies.each do |movie|
       %tr
         %td= movie.title
         %td= movie.rating
         %td= movie.release_date
-        %td= link_to "More about #{movie.title}", movie_path(movie)
+        %td= link_to "#{movie.title} 的详细信息", movie_path(movie)
 
-= link_to 'Add new movie', new_movie_path
+= link_to '添加新的商品', new_movie_path

@@ -2,13 +2,13 @@
 
 = form_tag movies_path do
 
-  = label :movie, :title, 'Title'
+  = label :movie, :title, '商品名称'
   = text_field :movie, 'title'
 
-  = label :movie, :rating, 'Rating'
-  = select :movie, :rating, ['G','PG','PG-13','R','NC-17']
+  = label :movie, :rating, '所属大类'
+  = select :movie, :rating, ['奶制品','肉制品','草原白酒','养生粗粮','民族工艺品']
 
-  = label :movie, :release_date, 'Released On'
+  = label :movie, :release_date, '上架时间'
   = date_select :movie, :release_date
 
-  = submit_tag 'Save Changes'
+  = submit_tag '确认添加信息'
